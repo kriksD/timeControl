@@ -6,7 +6,7 @@
 #include "timeControl.h"
 #include "ui_TimerStaysOnTopHint.h"
 
-class TimerStaysOnTopHint : public QDialog
+class TimerStaysOnTopHint : public QWidget
 {
 	Q_OBJECT
 
@@ -15,11 +15,12 @@ public:
 	~TimerStaysOnTopHint();
 
 	void setCurrentTime(QTime *currentTime);
+	void setParentAlt(QWidget *parentAlt);
 
 private:
 	Ui::TimerStaysOnTopHint ui;
 
-	QWidget* parent;
+	QWidget* parentAlt;
 	QTime* currentTime;
 	QTimer timer;
 

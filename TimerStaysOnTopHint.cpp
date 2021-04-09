@@ -1,10 +1,9 @@
 #include "TimerStaysOnTopHint.h"
 
-TimerStaysOnTopHint::TimerStaysOnTopHint(QWidget*parent) : QDialog(parent){
+TimerStaysOnTopHint::TimerStaysOnTopHint(QWidget*parent) : QWidget(parent){
 	ui.setupUi(this);
-	this->parent = parent;
 
-	this->setWindowFlag(Qt::FramelessWindowHint);
+	this->setWindowFlags(Qt::FramelessWindowHint);
 	this->setWindowOpacity(0.5);
 	this->setGeometry(-3, 0, this->geometry().width(), this->geometry().height());
 
@@ -22,6 +21,15 @@ void TimerStaysOnTopHint::setCurrentTime(QTime *currentTime){
 	this->currentTime = currentTime;
 }
 
+void TimerStaysOnTopHint::setParentAlt(QWidget* parentAlt){
+	this->parentAlt = parentAlt;
+}
+
 void TimerStaysOnTopHint::timer_tick(){
-	ui.labelTimer->setText(currentTime->toString());
+	if (parentAlt->isVisible()) {
+		ui.labelTimer->setText(currentTime->toString());
+	} else {
+		close();
+	}
+	
 }

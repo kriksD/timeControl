@@ -139,8 +139,9 @@ void timeControl::customizeAndStartTimer() {
 }
 
 void timeControl::createTimerOnTop() {
-    TimerStaysOnTopHint* timerOnTop = new TimerStaysOnTopHint(this);
+    TimerStaysOnTopHint* timerOnTop = new TimerStaysOnTopHint();
     timerOnTop->setCurrentTime(&currentTime);
+    timerOnTop->setParentAlt(this);
     widTimerOnTop = timerOnTop;
     timerOnTop->show();
 }
