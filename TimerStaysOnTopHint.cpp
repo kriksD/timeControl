@@ -3,7 +3,7 @@
 TimerStaysOnTopHint::TimerStaysOnTopHint(QWidget*parent) : QWidget(parent){
 	ui.setupUi(this);
 
-	this->setWindowFlags(Qt::FramelessWindowHint);
+	this->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
 	this->setWindowOpacity(0.5);
 	this->setGeometry(-3, 0, this->geometry().width(), this->geometry().height());
 
