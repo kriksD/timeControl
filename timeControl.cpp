@@ -126,6 +126,11 @@ void timeControl::timer_tick() {
             ui.checkBoxOnOffTimer->setChecked(false);
         }
     }
+
+    if (lastDate.toString("yy:mm:dd") != QDate::currentDate().toString("yy:mm:dd")) {
+        setCurrentTime(timeLimit);
+        lastDate = QDate::currentDate();
+    }
 }
 
 void timeControl::customizeAndStartTimer() {

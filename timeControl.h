@@ -21,6 +21,7 @@ private:
     QTimer timer;
     QTime currentTime;
     QTime timeLimit;
+    QDate lastDate = QDate::currentDate();
     QWidget* widTimerOnTop;
     enum FilePosition {
         LIMIT_TIME,
